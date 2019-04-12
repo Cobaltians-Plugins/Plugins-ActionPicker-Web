@@ -1,14 +1,11 @@
 (function(cobalt){
     var plugin={
-        name:"actionpicker",
-
-        init:function(){
-            //create shortcuts
-            cobalt.actionPicker=this.getAction.bind(this);
-
+        classes:{
+			ios: "ActionPickerPlugin",
+            android: "io.kristal.actionpicker.ActionPicker"
         },
-        handleEvent:function(json){
-            cobalt.log(this.name, ' plugin : unknown event received :', json)
+        init:function(){
+            cobalt.actionPicker=this.getAction.bind(this);
         },
         getAction:function(option,callback){
             cobalt.plugins.send(this, "getAction", option, callback);
