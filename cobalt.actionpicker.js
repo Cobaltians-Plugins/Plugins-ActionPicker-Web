@@ -2,17 +2,10 @@
     var plugin={
         name:"actionpicker",
 
-        init:function(options){
+        init:function(){
             //create shortcuts
             cobalt.actionPicker=this.getAction.bind(this);
 
-            if (options){
-                this.config(options);
-            }
-
-        },
-        config:function(settings){
-            
         },
         handleEvent:function(json){
             cobalt.log(this.name, ' plugin : unknown event received :', json)
