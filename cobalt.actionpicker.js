@@ -7,13 +7,18 @@
     init: function() {
       cobalt.actionPicker = this.getAction.bind(this);
     },
+    callbacks: {},
+    randomId : function(){
+      return Math.random().toString(36).substr(2, 10);
+    },
     getAction: function(option, callback) {
-      this.onActionPickerResult = callback;
+      option.callback = this.randomId();
+      this.callbacks[option.callback] = callback;
       cobalt.plugins.send(this, "getAction", option);
     },
     handleEvent: function(json) {
-      if (typeof this.onActionPickerResult === 'function') {
-        this.onActionPickerResult(json.index)
+      if (json.callback && typeof this.callbacks[json.callback] === 'function') {
+        this.callbacks[json.callback](json.index);
       }
     }
   };
