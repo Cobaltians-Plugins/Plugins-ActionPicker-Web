@@ -18,8 +18,8 @@
       cobalt.plugins.send(this, "getAction", option);
     },
     handleEvent: function(json) {
-      if (json.callback && typeof this.callbacks[json.callback] === 'function') {
-        this.callbacks[json.callback](json.index);
+      if (json.data && json.data.callback && typeof this.callbacks[json.data.callback] === 'function') {
+        this.callbacks[json.data.callback](json.data.index);
       }
     }
   };
