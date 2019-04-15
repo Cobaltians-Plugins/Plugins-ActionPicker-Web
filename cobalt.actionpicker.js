@@ -8,12 +8,12 @@
       cobalt.actionPicker = this.getAction.bind(this);
     },
     getAction: function(option, callback) {
-      cobalt.actionPickerCallback = callback;
+      this.onActionPickerResult = callback;
       cobalt.plugins.send(this, "getAction", option);
     },
     handleEvent: function(json) {
-      if (typeof cobalt.actionPickerCallback === 'function') {
-        cobalt.actionPickerCallback(json.index)
+      if (typeof this.onActionPickerResult === 'function') {
+        this.onActionPickerResult(json.index)
       }
     }
   };
