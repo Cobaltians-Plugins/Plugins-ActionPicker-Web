@@ -1,5 +1,6 @@
 (function(cobalt) {
   var plugin = {
+    name: 'CobaltActionPickerPlugin',
     classes: {
       ios: "ActionPickerPlugin",
       android: "io.kristal.actionpicker.ActionPicker"
